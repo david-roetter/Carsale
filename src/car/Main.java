@@ -8,6 +8,9 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
+
+        String TestEtienne = "Das ist ein Test";
+
         Dealership carDealer = new Dealership(new HashMap<>(Map.ofEntries(
                 Map.entry(1, new Car(1, 10000, 100)),
                 Map.entry(2, new Car(2, 20000, 200))
