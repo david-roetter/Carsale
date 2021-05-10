@@ -8,6 +8,7 @@ import java.util.Map;
 public class Main {
 
     public static void main(String[] args) {
+        String testDavid = "Testvariable von David";
         Dealership carDealer = new Dealership(new HashMap<>(Map.ofEntries(
                 Map.entry(1, new Car(1, 10000, 100)),
                 Map.entry(2, new Car(2, 20000, 200))
@@ -26,4 +27,6 @@ public class Main {
             System.out.println(e);
         }
     }
+
+
 }
