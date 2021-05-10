@@ -48,4 +48,19 @@ public class Dealership {
 
         return Invoice.forSoldCar(carToSell);
     }
+
+    public Invoice rent ( Car car , int months ) throws DealershipException {
+
+        if (!this.cars.containsKey(car.id())) {
+            throw new UnknownCarException();
+        }
+
+        if (!car.isAvailable()) {
+            throw new CarIsUnavailableException();
+        }
+
+        car.setMonths(months);
+
+        return Invoice.forRentCar(car);
+    }
 }

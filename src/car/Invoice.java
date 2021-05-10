@@ -14,7 +14,13 @@ public class Invoice {
         return new Invoice(carToSell.id(), carToSell.cost());
     }
 
+
     public static Invoice forRepairedCar(Car carToRepair) { return new Invoice(carToRepair.id(), carToRepair.repairCost());}
+
+    public static Invoice forRentCar(Car carToRent) {
+        return new Invoice(carToRent.id(), carToRent.costForRent());
+    }
+
 
     public int carId() {
         return carId;

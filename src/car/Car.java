@@ -8,14 +8,31 @@ public class Car {
 
     private boolean sold;
 
+
     private int repaircost;
 
     public Car(int id, int cost) {
         this.id = id;
         this.cost = cost;
         this.sold = false;
-        this.repaircost = cost/200;
+        this.repaircost = cost / 200;
     }
+    private boolean isRentable;
+
+    private int costPermonth;
+
+    private int monthsRented;
+
+    public Car(int id, int cost, int costPermonth) {
+        this.id = id;
+        this.cost = cost;
+        this.sold = false;
+        this.isRentable = true;
+        this.costPermonth = costPermonth;
+        this.repaircost = cost/200;
+
+    }
+
 
     public void sell() {
         this.sold = true;
@@ -29,9 +46,13 @@ public class Car {
         return this.cost;
     }
 
+
     public int repairCost() { return this.repaircost; }
 
     public Invoice repair() { return Invoice.forRepairedCar(this);}
+
+    public int costForRent() {return this.costPermonth * this.monthsRented;}
+
 
     public boolean isSold() {
         return this.sold;
@@ -40,6 +61,14 @@ public class Car {
     public boolean isAvailable() {
         // check if a car is available (not sold or not rented)
 
-        return !isSold();
+        return !isSold() && isRentable();
+    }
+
+    public boolean isRentable() {
+        return isRentable;
+    }
+
+    public void setMonths(int months) {
+        this.monthsRented = months;
     }
 }
