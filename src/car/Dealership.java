@@ -46,7 +46,7 @@ public class Dealership {
             throw new UnknownCarException();
         }
 
-        if (!car.isRentable()) {
+        if (!car.isAvailable()) {
             throw new CarIsUnavailableException();
         }
 

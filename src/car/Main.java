@@ -16,8 +16,8 @@ public class Main {
         try {
             Car car = carDealer.testDrive(1);
             Invoice invoiceBoughtCar = carDealer.sell(car);
-
-            Invoice invoiceRentedCar = carDealer.rent(car, 2);
+            Car car2 = carDealer.testDrive(2);
+            Invoice invoiceRentedCar = carDealer.rent(car2, 2);
 
 
             System.out.println(invoiceBoughtCar);

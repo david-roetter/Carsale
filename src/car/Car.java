@@ -44,7 +44,7 @@ public class Car {
     public boolean isAvailable() {
         // check if a car is available (not sold or not rented)
 
-        return !isSold();
+        return !isSold() && isRentable();
     }
 
     public boolean isRentable() {
