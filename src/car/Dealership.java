@@ -26,6 +26,15 @@ public class Dealership {
         return this.cars.get(id);
     }
 
+    public Invoice repair(Car carToRepair) throws DealershipException {
+        if(!this.cars.containsKey(carToRepair.id())){
+            throw new UnknownCarException();
+        }
+
+        return Invoice.forRepairedCar(carToRepair);
+
+    }
+
     public Invoice sell(Car carToSell) throws DealershipException {
         if (!this.cars.containsKey(carToSell.id())) {
             throw new UnknownCarException();

@@ -8,10 +8,13 @@ public class Car {
 
     private boolean sold;
 
+    private int repaircost;
+
     public Car(int id, int cost) {
         this.id = id;
         this.cost = cost;
         this.sold = false;
+        this.repaircost = cost/200;
     }
 
     public void sell() {
@@ -25,6 +28,10 @@ public class Car {
     public int cost() {
         return this.cost;
     }
+
+    public int repairCost() { return this.repaircost; }
+
+    public Invoice repair() { return Invoice.forRepairedCar(this);}
 
     public boolean isSold() {
         return this.sold;

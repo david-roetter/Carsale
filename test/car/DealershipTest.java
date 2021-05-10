@@ -107,5 +107,23 @@ class DealershipTest {
         Mockito.verify(car, Mockito.times(1)).sell();
     }
 
+    @Test
+    void repairCar() throws DealershipException {
+        int id = 1;
+        int price = 40000;
+        Car car = new Car(id, price);
+        HashMap<Integer, Car> hm = new HashMap<>();
+        hm.put(id, car);
+        Dealership dealership = new Dealership(hm);
+        assertEquals(car.repair().price(), car.repairCost());
+        assertEquals(dealership.repair(car).price(), car.repairCost());
+        Car strangeCar = new Car(2, 50000);
+        try {
+            dealership.repair(strangeCar);
+        } catch (DealershipException de){
+            System.out.println("Car was not repaired!");
+        }
+    }
+
 
 }
